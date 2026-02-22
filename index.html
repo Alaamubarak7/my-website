@@ -5,10 +5,14 @@
     <title>Alaa Mubarak - Data Engineer Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Data Engineer portfolio of Alaa Mubarak, specializing in data pipelines, ETL, and database solutions.">
-    <!-- Fonts & Icons -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
     <style>
         :root {
             --bg: #0b0e11;
@@ -55,6 +59,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow-x: hidden;
         }
 
         /* Made by Alaa credit */
@@ -136,7 +141,7 @@
             padding-right: 50px;
             padding-left: 50px;
             padding-top: 50px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             animation: slideIn 0.4s ease-out;
         }
         .page.active { display: block; }
@@ -371,59 +376,56 @@
         .nav-bar button.active { background: var(--text); color: var(--bg); }
 
         /* RTL support */
-        .rtl {
-            direction: rtl;
-            text-align: right;
-        }
-        .rtl .home-layout {
-            direction: rtl;
-        }
-        .rtl .project-card {
-            direction: rtl;
-        }
-        .rtl .contact-left,
-        .rtl .contact-right {
-            direction: rtl;
-        }
-        .rtl .top-bar,
-        .rtl .nav-bar {
-            flex-direction: row-reverse;
-        }
+        .rtl { direction: rtl; text-align: right; }
+        .rtl .home-layout { direction: rtl; }
+        .rtl .project-card { direction: rtl; }
+        .rtl .contact-left, .rtl .contact-right { direction: rtl; }
+        .rtl .top-bar, .rtl .nav-bar { flex-direction: row-reverse; }
 
-        /* Mobile */
+        /* --- تحسينات الموبايل المتطورة (Mobile Optimization) --- */
         @media (max-width: 768px) {
             .card { 
                 height: auto; 
                 min-height: 600px; 
-                padding: 0 25px; 
-                margin-top: 100px;
-                margin-bottom: 100px;
+                padding: 0 15px; /* تقليل المساحة الجانبية لتوفير مساحة للكونتنت */
+                margin-top: 80px;
+                margin-bottom: 100px; /* مساحة كافية للـ Nav Bar */
             }
             .pages-container { padding: 20px 0; }
-            .home-layout { flex-direction: column-reverse; text-align: center; justify-content: center; }
-            .home-text .greeting { font-size: 1.8rem; }
-            .home-text h1 { font-size: 3rem; }
+            .page {
+                padding-right: 15px; /* إصلاح مشكلة انضغاط الكلام */
+                padding-left: 15px;
+                padding-top: 30px;
+            }
+            .home-layout { flex-direction: column-reverse; text-align: center; justify-content: center; gap: 20px; }
+            .home-text .greeting { font-size: 1.5rem; }
+            .home-text h1 { font-size: 2.5rem; word-wrap: break-word; } /* تصغير العنوان لتجنب كسر الشاشة */
             .home-text .job-title { font-size: 1.2rem; }
-            .avatar-box { width: 200px; height: 200px; }
-            .nav-bar { width: 90%; justify-content: space-around; }
+            .avatar-box { width: 180px; height: 180px; }
+            
+            .nav-bar { width: 95%; justify-content: space-around; padding: 5px; }
+            .nav-bar button { padding: 10px 12px; font-size: 0.85rem; } /* تصغير الأزرار قليلاً */
+            
             .services-container { grid-template-columns: 1fr; }
             .grid-container { grid-template-columns: 1fr; }
             .project-card { flex-direction: column; text-align: center; }
-            .project-img { width: 100%; height: 160px; }
+            .project-img { width: 100%; height: 180px; }
+            
             .contact-two-columns { flex-direction: column; gap: 15px; }
-            .contact-left .avatar-large { width: 180px; height: 180px; }
+            .contact-left .avatar-large { width: 150px; height: 150px; }
             .contact-left { padding: 20px; }
             .social-links a { width: 45px; height: 45px; font-size: 1.3rem; }
-            .top-bar { top: 15px; padding: 5px 10px; }
-            .lang-toggle, .theme-toggle { padding: 8px 12px; font-size: 0.85rem; }
+            
+            .top-bar { top: 15px; width: 90%; max-width: 350px; justify-content: space-between; gap: 10px; }
+            .lang-toggle, .theme-toggle { padding: 8px 15px; font-size: 0.85rem; }
+            
+            .credit { bottom: 90px; } /* رفع الكلمة فوق الناف بار في الموبايل */
         }
     </style>
 </head>
 <body class="dark-mode">
-    <!-- Made by Alaa credit -->
     <div class="credit">Made by Alaa</div>
 
-    <!-- Floating top bar -->
     <div class="top-bar">
         <button class="lang-toggle" onclick="toggleLanguage()" id="langToggle" aria-label="Toggle language">
             <i class="fas fa-globe"></i> <span id="langText">العربية</span>
@@ -433,10 +435,8 @@
         </button>
     </div>
 
-    <!-- Main card -->
     <div class="card">
         <div class="pages-container">
-            <!-- Home page -->
             <div class="page active" id="home">
                 <div class="home-layout">
                     <div class="home-text">
@@ -452,7 +452,6 @@
                 </div>
             </div>
 
-            <!-- About page -->
             <div class="page" id="about">
                 <h2 style="font-size: 2.5rem; margin-bottom: 15px;" data-i18n="about.title">About Me</h2>
                 <p style="color: var(--muted); line-height: 1.8; font-size: 1.1rem;" data-i18n="about.description">
@@ -483,15 +482,13 @@
                     </div>
                 </div>
 
-                <!-- زر تحميل السيرة الذاتية -->
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="Alaa _Mubarak Abdelrahem_Data Engineer_resume.pdf" download class="btn btn-primary" style="display: inline-block; text-decoration: none;">
+                    <a href="Alaa_Mubarak_Data_Engineer_resume.pdf" download class="btn btn-primary" style="display: inline-block; text-decoration: none;">
                         <i class="fas fa-download"></i> <span data-i18n="about.cvButton">Download CV</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Projects page -->
             <div class="page" id="projects">
                 <h2 class="projects-title" data-i18n="projects.title">Selected Projects</h2>
                 <div class="grid-container">
@@ -505,7 +502,6 @@
                 </div>
             </div>
 
-            <!-- Contact page -->
             <div class="page" id="contact">
                 <div class="contact-two-columns">
                     <div class="contact-right">
@@ -554,7 +550,6 @@
         </div>
     </div>
 
-    <!-- Bottom navigation -->
     <div class="nav-bar">
         <button class="active" id="btn-home" onclick="changePage('home')" data-i18n="nav.home">Home</button>
         <button id="btn-about" onclick="changePage('about')" data-i18n="nav.about">About</button>
@@ -739,5 +734,4 @@
         }
     </script>
 </body>
-
 </html>
